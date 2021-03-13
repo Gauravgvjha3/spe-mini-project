@@ -1,0 +1,5 @@
+localhost ansible_user=gaurav
+
+
+[ubuntu20]
+192.168.0.104 ansible_user=uranus
