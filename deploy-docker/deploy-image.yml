@@ -1,8 +1,8 @@
 ---
-- name: Pull docker image of Lab3Junit
+- name: Pull docker image of calculator
   hosts: all
   tasks:
-    - name: Pull junit devops image
+    - name: Pull calculator devops image
       docker_image:
-        name: 1gaurav1/junit-dev-ops
+        name: 1gaurav1/calci-dev-ops
         source: pull
