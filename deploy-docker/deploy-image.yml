@@ -4,5 +4,5 @@
   tasks:
     - name: Pull calculator devops image
       docker_image:
-        name: 1gaurav1/calci-dev-ops-1
+        name: 1gaurav1/calci-dev-ops-2
         source: pull
