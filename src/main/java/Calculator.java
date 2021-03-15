@@ -1,85 +1,85 @@
 import java.util.Scanner;
+import java.lang.Math;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class Calculator {
-    static double squareRoot(double n) { // function to find the square root of a number
-        return Math.sqrt(n);
+    private static final Logger logger = LogManager.getLogger(Calculator.class);
+    public static double square_root(double x) {
+        logger.info("Square root operation for value "+ x);
+        return Math.sqrt(x);
     }
 
-    static double factorial(double n) { // function to find the factorial of a number
-        try { // for handling the case when we pass a negative number as input
-            if (n < 0)
-                throw new ArithmeticException(); // throwing the Arithmetic Exception
-        } catch (ArithmeticException e) { // catching the exception
-            return Double.NaN; // returning NaN
+    public static long factorial(int number) {
+        logger.info("Factorial root operation for value "+ number);
+        long result = 1;
+        for (int factor = 2; factor <= number; factor++) {
+            result *= factor;
         }
+        return result;
 
-        double answer = 1;
-        for(int i = 2; i <= n; i++)
-            answer *= i;
-        return answer;
     }
 
-    static double logarithm(double n) { // function to find the log base e value of a number
-        return Math.log(n);
+    public static double natural_log(double number){
+
+        logger.info("Natural Logarithm operation for value "+ number);
+        return Math.log(number);
     }
 
-    static double power(double X, double b) { // function to find X power b
-        return Math.pow(X, b);
+    public static double power(double base, double exponent){
+        logger.info("Power operation for base as " + base + " and exponent as "+ exponent);
+        return Math.pow(base, exponent);
     }
 
     public static void main(String[] args) {
-        int choice, flag = 0;
-        double n1, n2;
-        Scanner scan = new Scanner(System.in); // creating new scanner class object
-        System.out.println("Mini Project -> Calculator using DevOps\n");
+        Scanner reader = new Scanner(System.in);
+        char input;
+        do {
+            System.out.println("************************ OPERATIONS MENU *************************");
+            System.out.println("Enter your choice :");
+            System.out.println("1. Square Root");
+            System.out.println("2. Factorial");
+            System.out.println("3. Natural Logarithm");
+            System.out.println("4. Power");
 
-        while(flag == 0) {
-            System.out.println("1. Square root\n2. Factorial\n3. Natural Logarithm (base e)\n4. Power function (X^b)\n5. Exit\n");
-            System.out.print("Enter your choice :: ");
-            choice = scan.nextInt();
-
-            switch(choice) {
+            // n
+            int choice = reader.nextInt();
+            switch (choice) {
                 case 1:
-                    System.out.print("Enter the number :: ");
-                    n1 = scan.nextDouble();
 
-                    System.out.println("Square root of " + n1 + " = " + squareRoot(n1));
+                    System.out.println("Enter the number to calculate square root :");
+                    double x = reader.nextDouble();
+                    System.out.println("Answer: " +square_root(x));
                     break;
 
                 case 2:
-                    System.out.print("Enter the number :: ");
-                    n1 = scan.nextDouble();
-
-                    System.out.println("Factorial of " + n1 + " = " + factorial(n1));
+                    System.out.println("Enter the number to calculate factorial : ");
+                    int y = reader.nextInt();
+                    System.out.println("Answer: " + factorial(y));
                     break;
 
                 case 3:
-                    System.out.print("Enter the number :: ");
-                    n1 = scan.nextInt();
-
-                    System.out.println("Natural Log(base e) of " + n1 + " = " + logarithm(n1));
+                    System.out.print("Enter the number to calculate natural logarithm :");
+                    double z = reader.nextDouble();
+                    System.out.println("Answer: "+ natural_log(z));
                     break;
 
                 case 4:
-                    System.out.print("Enter X :: ");
-                    n1 = scan.nextDouble();
-                    System.out.print("Enter b :: ");
-                    n2 = scan.nextDouble();
-
-                    System.out.println(n1 + " power " + n2 + " = " + power(n1, n2));
+                    System.out.println("Enter the base and the exponent :");
+                    double a = reader.nextDouble();
+                    double b = reader.nextDouble();
+                    System.out.println("Answer: "+ power(a, b));
                     break;
 
-                case 5:
-                    System.out.print("thank for using the program... exiting now...");
-                    flag = 1;
-                    break;
 
                 default:
-                    System.out.println("invalid choice... try again...");
+                    logger.warn("Incorrect option is chosen");
+                    System.out.println("Error! Choice is not correct");
+                    return;
             }
-
-            System.out.println(); // printing new line
-        }
+            System.out.println("Want to perform more operations??(Enter Y/y for yes)");
+            input = reader.next().charAt(0);
+        } while (input == 'Y' || input == 'y');
     }
 }
-

@@ -1,0 +1,8 @@
+2021-03-15 20:49:49.542 [Calculator.java] INFO  Calculator - Power operation for base as 3.0 and exponent as 4.0
+2021-03-15 20:49:49.548 [Calculator.java] INFO  Calculator - Factorial root operation for value 5
+2021-03-15 20:49:49.549 [Calculator.java] INFO  Calculator - Square root operation for value 16.0
+2021-03-15 20:49:49.549 [Calculator.java] INFO  Calculator - Natural Logarithm operation for value 10.0
+2021-03-15 20:55:18.515 [Calculator.java] INFO  Calculator - Factorial root operation for value 5
+2021-03-15 20:55:34.937 [Calculator.java] INFO  Calculator - Natural Logarithm operation for value 10.0
+2021-03-15 20:55:41.406 [Calculator.java] INFO  Calculator - Square root operation for value 5.0
+2021-03-15 20:55:50.118 [Calculator.java] INFO  Calculator - Factorial root operation for value 7
